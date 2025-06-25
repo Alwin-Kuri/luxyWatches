@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Group Coursework">
+    <meta name="keywords" content="Coursework, HTML, CSS, JavaScript">
+    <meta name="author" content="Hishek Yonjan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alwin's portfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            border-radius: 10px;
+            margin: 10px 25%;
+            width: 900px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            width: 30%;
+            border-radius: 10px;
+            background-color: #000000;
+            color: #fff;
+            padding: 20px;
+        }
+        .profile-picture img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .contact h2, .contact p, .contact a {
+            margin: 0 0 10px;
+        }
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .main-content {
+            width: 70%;
+            padding: 20px 20px;
+        }
+        .main-content h1 {
+            margin: 0 0 10px;
+        }
+        .section h2 {
+            margin: 0 0 10px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+        }
+        .section p {
+            margin: 0 0 10px;
+        }
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skills ul li {
+            margin: 0 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Luxy Nepal Logo" class="navbar-logo">
+                </a>
+            </div>    
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="./collections.html">Collections</a>
+                        <ul class="dropdown-menu" style="background-color: #333;">
+                            <li><a href="./men.html">Men's Watches</a></li>
+                            <li><a href="./women.html">Women's Watches</a></li>
+                            <li><a href="./kids.html">Kids' Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./about.html" class="active">About Us</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                    <li><a href="./cart.html">Cart<span id="cart-count">0</span></a></li>
+                </ul>
+                <!--A simple search bar-->
+                <div class="navItem">
+                    <div class="search">
+                        <input type="text" placeholder="Search..." class="searchInput">
+                        <img src="../images/search.png" width="20" height="20" alt="" class="searchIcon">
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count"></span></a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!--Return to previous page button-->
+    <button class="back-button" onclick="goBack()">← Return Back</button>
+
+    <!--CV main-->
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-picture">
+                <img src="../images/alwin.png" alt="Profile Picture">
+            </div>
+            <div class="contact">
+                <h2 style="border-bottom: 2px solid #fff; ;">Contact</h2>
+                <p>9803461292</p>
+                <p>alwinmaharjan@gmail.com</p>
+                <p>Nakhkpot-14, Lalitpur</p>
+                <p>🔗 <a href="https://www.linkedin.com/in/alwin-maharjan/">LinkedIn</a></p>
+                <p>🔗 <a href="https://github.com/Alwin-Kuri">GitHub</a></p>
+            </div>
+            <div class="section">
+                <h2 style="border-bottom: 2px solid #fff; ;">Education</h2>
+                <p>+2 NEB | DAV College</p>
+                <p>BSc Computing with Artificial Intelligence | Islington College</p>
+            </div>
+            <div class="section skills">
+                <h2 style="border-bottom: 2px solid #fff; ;">Skills</h2>
+                <ul>
+                    <li>Communication</li>
+                    <li>Data Handling</li>
+                    <li>Graphic Designing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>Alwin Maharjan</h1>
+            <h2>Student</h2>
+            <p style="text-align: justify;">Dynamic and results-oriented student seeking experience. Passionate about developing innovative 
+                solutions and committed to driving continuous improvement and innovation. Seeking to leverage skills and 
+                experience to contribute to the success of a forward-thinking industry.</p>
+            <div class="section certifications">
+                <h2>Training/Certifications</h2>
+                <p>AWS Cloud Foundations</p>
+                <p>Amazon Web Services/ 2024</p>
+                <p>AWS Machine Learning Foundations</p>                
+                <p>Amazon Web Services/ 2024</p>              
+                <p>AWS Cloud Engineer </p>
+                <p>Amazon Web Services/ 2024</p>
+                <p>AWS Machine Learning for Natural Language Processing</p>
+                <p>Amazon Web Services/ 2024</p>
+            </div>
+            <div class="section projects">
+                <h2>Projects</h2>
+                <p>Simple RC Boat</p>
+                <p style="text-align: justify;">During the school day, with peak interest in robot control mechanics, 
+                    me and my friends had made a simple moving RC boat by taking off the parts from toys and other devices 
+                    for an annual science exhibition.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="../images/logo.png" alt="Luxy Nepal Logo" class="footer-logo">
+                <div>
+                    <h4>About Us</h4>
+                    <p>
+                        You are accessing the world's <br>number one leading watch store.
+                    </p>
+                    <p>
+                        Hope you found the right fit <br>for your fabulous wrist.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="footer-section follow">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/IslingtonCollege/"><img src="../images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/islingtoncollege/"><img src="../images/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/islington1996"><img src="../images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-section explore">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="./collections.html">Collections</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./blog.html">Our Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section support">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

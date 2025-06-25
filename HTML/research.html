@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Group Coursework">
+    <meta name="keywords" content="Coursework, HTML, CSS, JavaScript">
+    <meta name="author" content="Deshan Shakya">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Coursework - Luxury Watches</title>
+    <link rel="stylesheet" href="../css/styles.css">     
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .research-container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .research-title {
+            padding: 30px;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            display: flex;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        table td {
+            border-radius: 15px;
+            width: 48%;
+            text-align: center;
+        }
+
+        table img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .note {
+            text-align: center;
+            font-size: 1em;
+            margin-top: 20px;
+            color: #555;
+        }
+        .img-size{
+            width: 500px;
+            height: 250px;
+        }
+        .like{
+            text-align: justify;
+            font-size: 1em;
+            color: #353535;
+        }
+    </style> 
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Luxy Nepal Logo" class="navbar-logo">
+                </a>
+            </div>    
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="./collections.html">Collections</a>
+                        <ul class="dropdown-menu" style="background-color: #333;">
+                            <li><a href="./men.html">Men's Watches</a></li>
+                            <li><a href="./women.html">Women's Watches</a></li>
+                            <li><a href="./kids.html">Kids' Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./research.html" class="active">Research</a></li>
+                    <li><a href="./cart.html">Cart<span id="cart-count">0</span></a></li>
+                </ul>
+                <!--A simple search bar-->
+                <div class="navItem">
+                    <div class="search">
+                        <input type="text" placeholder="Search..." class="searchInput">
+                        <img src="../images/search.png" width="20" height="20" alt="" class="searchIcon">
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count"></span></a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!--Return to previous page button-->
+    <button class="back-button" onclick="goBack()">← Return Back</button>
+
+    <!--References section where we show the websites where we took reference from and so on-->
+    <div class="research-container">
+        <p class="research-title">References and Comparisons</p>
+        <table>
+            <!--  row 1 Titan Nepal homepage -->
+            <tr>
+                <td>
+                    <a href="https://www.titannepal.com/" target="_blank"><img class="img-size"  src="../images/reference_homepage.png" alt="Titan Nepal"></a>
+                    <p> Reference Homepage</p>
+                </td>
+                <td>
+                    <a href="index.html"><img src="../images/our_homepage.jpg" alt="Our Website Section 1"></a>
+                    <p>Our Homepage</p>
+                </td>
+            </tr>
+        </table>
+        <p class="like"> 
+            The homepage of Titan Nepal was really simple and elegant at the same time, so we wanted similar styling
+            with the addition of a well performing slider which automatically changes images in certain duration of time.
+        </p>
+        <table>
+            <!--  row 2 Brietling collections -->
+            <tr>
+                <td>
+                    
+                    <a href="https://www.breitling.com/us-en/watches/collections/" target="_blank"><img class="img-size" src="../images/reference_collection.png" alt="Collection reference"></a>
+                    <P>Reference Collection</P>
+                </td>
+                <td>
+                    <a href="./collections.html"><img src="../images/our_collection.jpg" alt="Our Website Section 2"></a>
+                    <p>Our Collections</p>
+                </td>
+            </tr>
+        </table>
+        <p class="like">
+            The collection page of Brietling was really well designed with proper functioning wishlist and sliding images of
+            the watch show collection, so we designed it in a rather novice way with taking it as a reference.
+        </p>
+        <table>
+            <!-- row 3 Titan nepal features -->
+            <tr>
+                <td>
+                    <a href="https://www.titannepal.com/" target="_blank"><img class="img-size" src="../images/reference_features.png" alt="Titan Nepal"></a>
+                    <p>Reference Features</p>
+                </td>
+                <td>
+                    <a href="../index.html"><img src="../images/our_features.jpg" alt="Our Website Section 3"></a>
+                    <p>Our features
+                </td>
+            </tr>
+        </table>
+        <p class="like">
+            We also noticed the features of Titan Watches, which would have made us realize that the watch store was actually
+            providing a few noticeable features if we were customers. So, we also added a few features with this site as a reference. 
+        </p>
+        <table>
+            <!--  row 4 breitling footer  -->
+            <tr>
+                <td>
+                    <a href="https://www.omegawatches.com/" target="_blank"><img class="img-size" src="../images/reference_footer.png" alt="Omega"></a>
+                    <p>Reference Footer</p>
+                </td>
+                <td>
+                    <a href="../index.html"><img src="../images/our_footer.jpg" alt="Our Website Section 4"></a>
+                    <p>Our Footer</p>
+                </td>
+            </tr>
+        </table>
+        <p class="like">
+            In the brietling page, we noticed a well structured footer with external links redirecting to other websites,
+            so we took it as a reference to implement a similar type of footer but a different design.
+        </p>
+        <table>
+            <!-- row 5 titan nepal payment method -->
+            <tr>
+                <td>
+                     <a href="https://www.titannepal.com/" target="_blank"><img class="img-size" src="../images/reference_payment.png" alt="Patek Phillipe"></a>
+                     <p>Reference Payment</p>
+                </td>
+                <td>
+                    <a href="./collections.html"><img src="../images/our_payment.jpg" alt="Our Website Section 5"></a>
+                    <p>Our Payment</p>
+                </td>
+            </tr>
+        </table>
+        <p class="like">
+            When we clicked the "Buy now" button in Titan Watches, we noticed a very simple yet working payment form. Hence,
+            we styled our payment form in a similar manner with our own skills and a few youtube videos.
+        </p>
+        <table>
+            <!-- Row 6 team -->
+            <tr>
+                <td>
+                     <a href="https://www.placesnepal.com/meet-our-team" target="_blank"><img claass="img-size" src="../images/reference_team.png" alt="Team"></a>
+                     <p>Reference Team</p>
+                </td>
+                <td>
+                    <a href="./about.html"><img src="../images/our_team.jpg" alt="Our Website Section 6"></a>
+                    <p>Our Team</p>
+                </td>
+            </tr>
+        </table>
+        <p class="like">
+            While surfing through the net, we also found a site with a very simple but briefly descripted "Meet Our Team" page.
+            So, we made a similar design for our "About Us" Page.
+        </p>
+        <p class="note">This page provides a comparison of the references used in designing our luxury watch website and the resulting sections.</p>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="../images/logo.png" alt="Luxy Nepal Logo" class="footer-logo">
+                <div>
+                    <h4>About Us</h4>
+                    <p>
+                        You are accessing the world's <br>number one leading watch store.
+                    </p>
+                    <p>
+                        Hope you found the right fit <br>for your fabulous wrist.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="footer-section follow">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/IslingtonCollege/"><img src="../images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/islingtoncollege/"><img src="../images/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/islington1996"><img src="../images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-section explore">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="./collections.html">Collections</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./blog.html">Our Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section support">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

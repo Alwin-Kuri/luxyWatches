@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Group Coursework">
+    <meta name="keywords" content="Coursework, HTML, CSS, JavaScript">
+    <meta name="author" content="Alwin Maharjan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Coursework - Luxury Watches</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* General Styling for index.html*/
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            /*background color for contents of home page    */
+            background-color: #f7f7f7;
+        }
+
+        .collections-container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .collection-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-item {
+            min-width: 25%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .slider-item img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .watch-title {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .watch-price {
+            color: #888;
+            font-size: 1em;
+            margin: 5px 0;
+            text-decoration: line-through;
+        }
+
+        .watch-price1 {
+            color: #000000;
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        .buy-now-btn {
+            background-color: #f8c923;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #e1b71c;
+        }
+
+        /* Slider Controls */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 50%;
+        }
+
+        .slider-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /*feature design*/
+        .features {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px;
+        padding-bottom: 0px;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .featureIcon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .featureTitle {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px;
+        }
+
+        .featureDesc {
+            color: gray;
+            width: 50%;
+            height: 100px;
+        }
+    </style>      
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/logo.png" alt="Luxy Nepal Logo" class="navbar-logo">
+                </a>
+            </div>    
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="./HTML/collections.html">Collections</a>
+                        <ul class="dropdown-menu" style="background-color: #333;">
+                            <li><a href="./HTML/men.html">Men's Watches</a></li>
+                            <li><a href="./HTML/women.html">Women's Watches</a></li>
+                            <li><a href="./HTML/kids.html">Kids' Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./HTML/about.html">About Us</a></li>
+                    <li><a href="./HTML/blog.html">Blog</a></li>
+                    <li><a href="./HTML/research.html">Research</a></li>
+                    <li><a href="./HTML/cart.html">Cart<span id="cart-count">0</span></a></li>
+                </ul>
+                <!--A simple search bar-->
+                <div class="navItem">
+                    <div class="search">
+                        <input type="text" placeholder="Search..." class="searchInput">
+                        <img src="./images/search.png" width="20" height="20" alt="" class="searchIcon">
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="./HTML/cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Main body section -->
+    <section id="main-bod">
+        <div class="slider-container">
+            <div class="slide fade">
+                <img src="./images/img3.jpg" alt="Luxury Watches" style="width: 100%; height: 400px;">
+                <div class="caption" style="bottom: 0%;left: 53%;">
+                    <h1>Our best sales</h1>
+                    <p>Timeless elegance and style.</p>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="./images/luxsport.png" alt="Sport Watches" style="width: 100%; height: 400px;">
+                <div class="caption">
+                    <p>Designed for performance and durability.</p>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="./images/img2.jpg" alt="Smart Watches" style="width: 100%; height: 400px;">
+                <div class="caption" style="bottom: 15%;left: 39%;">
+                    <p>Innovation at your fingertips.</p>
+                </div>
+            </div>
+        
+            <!-- Navigation Arrows -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        
+            <!-- Navigation Dots -->
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>        
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology">
+        <div class="tech-content">
+            <div class="tech-card">
+                <img src="./images/tech2.jpg" alt="Smartwatch Technology">
+                <h3>Smartwatch Integration</h3>
+                <p>Smartwatches are revolutionizing the industry, offering health tracking, GPS, and connectivity in a stylish package...</p>
+                <a href="./HTML/blog.html" class="read-more-btn">Read More</a>
+            </div>
+            <div class="tech-card">
+                <img src="./images/tech3.png" alt="Advanced Materials">
+                <h3>Advanced Materials</h3>
+                <p>The use of titanium, ceramic, and synthetic sapphire is reshaping watch durability and aesthetics of the watches in our production...</p>
+                <a href="./HTML/blog.html" class="read-more-btn">Read More</a>
+            </div>
+            <div class="tech-card">
+                <img src="./images/tech4.jpg" alt="Mechanical Innovations">
+                <h3>Mechanical Innovations</h3>
+                <p>Modern movements and escapements enhance precision, blending centuries of craftsmanship with contemporary innovations...</p>
+                <a href="./HTML/blog.html" class="read-more-btn">Read More</a>
+            </div>
+        </div>
+    </section>
+    <!--watches showcase-->
+    <div class="collections-container">
+        <!-- Best sellers Watches Section -->
+        <h2 class="collection-title">Our Best Sellers</h2>
+        <div class="slider-container">
+            <div class="slider" id="luxury-slider">
+                <div class="slider-item">
+                    <a href="./HTML/gurkha1.html"><img src="./images/watch (41).jpg" alt="Luxury Watch 1"></a>
+                    <div class="watch-title">Gurkha Premium</div>
+                    <div class="watch-price">$5,000</div>
+                    <div class="watch-price1">$4,500</div>
+                </div>
+                <div class="slider-item">
+                    <a href="./HTML/gurkha2.html"></a><img src="./images/watch (42).jpg" alt="Luxury Watch 2">
+                    <div class="watch-title">Gurkha Medalist</div>
+                    <div class="watch-price">$7,000</div>
+                    <div class="watch-price1">$6,500</div>
+                </div>
+                <div class="slider-item">
+                    <a href="./HTML/gurkha3.html"></a><img src="./images/watch (43).jpg" alt="Luxury Watch 3">
+                    <div class="watch-title">Gurkha Black</div>
+                    <div class="watch-price">$9,000</div>
+                    <div class="watch-price1">$8,500</div>
+                </div>
+                <div class="slider-item">
+                    <a href="./HTML/gurkha4.html"></a><img src="./images/watch (47).jpg" alt="Luxury Watch 1">
+                    <div class="watch-title">Gurkha Gold</div>
+                    <div class="watch-price">$5,000</div>
+                    <div class="watch-price1">$4,500</div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Sport Watches Section -->
+        <h2 class="collection-title">Our Top Picks</h2>
+        <div class="slider-container">
+            <div class="slider" id="sport-slider">
+                <div class="slider-item">
+                    <img src="./images/rol1.png" alt="Rolex Watch 1">
+                    <div class="watch-title">Day-Date 36</div>
+                    <div class="watch-price">$95,000</div>
+                    <div class="watch-price1">$90,500</div>
+                </div>
+                <div class="slider-item">
+                    <img src="./images/rol2.png" alt="Rolex Watch 2">
+                    <div class="watch-title">Rolex Deepsea</div>
+                    <div class="watch-price">$82,200</div>
+                    <div class="watch-price1">$79,000</div>
+                </div>
+                <div class="slider-item">
+                    <img src="./images/rol3.png" alt="Rolex Watch 3">
+                    <div class="watch-title">Day-Date 36</div>
+                    <div class="watch-price">$72,000</div>
+                    <div class="watch-price1">$70,000</div>
+                </div>
+                <div class="slider-item">
+                    <img src="./images/rol4.png" alt="Rolex Watch 4">
+                    <div class="watch-title">Submariner Date</div>
+                    <div class="watch-price">$65,400</div>
+                    <div class="watch-price1">$610,00</div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Sport Watches Section -->
+        <h2 class="collection-title">Our Most Liked Sport Watches</h2>
+        <div class="slider-container">
+            <div class="slider" id="smart-slider">
+                <div class="slider-item">
+                    <a href="./HTML/sport2.html"><img src="./images/watch (22).jpg" alt="Sport Watch 1"></a>
+                    <div class="watch-title">G-Shock 2000</div>
+                    <div class="watch-price">$1200</div>
+                    <div class="watch-price1">$700</div>
+                </div>
+                <div class="slider-item">
+                    <a href="./HTML/sport1.html"><img src="./images/watch (21).jpg" alt="Sport Watch 2"></a>
+                    <div class="watch-title">G-Shock 2000</div>
+                    <div class="watch-price">$10000</div>
+                    <div class="watch-price1">$750</div>
+                </div>
+                <div class="slider-item">
+                    <a href="./HTML/sport3.html"><img src="./images/watch (23).jpg" alt="Sport Watch 3"></a>
+                    <div class="watch-title">G-Shock 3210</div>
+                    <div class="watch-price">$950</div>
+                    <div class="watch-price1">$700</div>
+                </div>
+                <div class="slider-item">
+                    <a href="./HTML/sport4.html"><img src="./images/watch (24).jpg" alt="Sport Watch 4"></a>
+                    <div class="watch-title">G-Shock 4210</div>
+                    <div class="watch-price">$900</div>
+                    <div class="watch-price1">$700</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Customer reviews for the watches-->
+    <div class="reviews-section">
+        <h2>Customer Feedbacks & Reviews</h2>
+    
+        <!-- Reviews Container -->
+        <div class="reviews-container">
+            <div class="review">
+                <p>"Absolutely love my new watch! The design is timeless and fits perfectly. Highly recommend Luxy Nepal!"</p>
+                <span>- Salim K.</span>
+            </div>
+            <div class="review">
+                <p>"Great customer service and fast delivery. The watch exceeded my expectations!"</p>
+                <span>- Eminem D.</span>
+            </div>
+            <div class="review">
+                <p>"Luxy Nepal has an amazing collection of watches. I've already bought two and can't wait to buy more!"</p>
+                <span>- Priya M.</span>
+            </div>
+            <div class="review">
+                <p>"The quality of the watches is unmatched. Very satisfied with my purchase."</p>
+                <span>- Rajesh S.</span>
+            </div>
+            <div class="review">
+                <p>"Stylish and affordable watches. Perfect gift for any occasion!"</p>
+                <span>- Emily R.</span>
+            </div>
+            <div class="review">
+                <p>"I get compliments on my watches all the time. It's a statement piece!"</p>
+                <span>- Michael T.</span>
+            </div>
+            <div class="review">
+                <p>"Great shopping experience. I love the customer service provided by the staffs."</p>
+                <span>- Neha P.</span>
+            </div>
+            <div class="review">
+                <p>"Really loved the watches provided to me. Everytime I gift someone a watch, they love it."</p>
+                <span>- Lorin A.</span>
+            </div>
+        </div>
+    
+        <!-- Submit Your Own Review -->
+        <div class="post-review">
+            <h3>Post Your Own Review</h3>
+            <form id="reviewForm" onsubmit="return validateReviewForm()">
+                <textarea id="reviewText" name="review" placeholder="Write your review here..." rows="4"></textarea>
+                <input id="reviewName" type="text" name="name" placeholder="Your Name">
+                <button type="submit">Submit Review</button>
+                <p id="errorMessage" style="color: red; display: none;">Please fill out all fields before submitting!</p>
+            </form>
+        </div>
+    </div>
+
+    <!--features of our watch store-->
+    <div class="features">
+        <div class="feature">
+            <img src="./images/shipping.png" alt="" class="featureIcon">
+            <span class="featureTitle">FREE SHIPPING</span>
+            <span class="featureDesc">Free worldwide shipping on all orders.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="./images/return.png" alt="">
+            <span class="featureTitle">30 DAYS RETURN</span>
+            <span class="featureDesc">No question return and easy refund in 14 days.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="./images/gift.png" alt="">
+            <span class="featureTitle">GIFT CARDS</span>
+            <span class="featureDesc">Buy gift cards and use coupon codes easily.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="./images/contact.png" alt="">
+            <span class="featureTitle">CONTACT US!</span>
+            <span class="featureDesc">Keep in touch via email and support system.</span>
+        </div>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="./images/logo.png" alt="Luxy Nepal Logo" class="footer-logo">
+                <div>
+                    <h4>About Us</h4>
+                    <p>
+                        You are accessing the world's <br>number one leading watch store.
+                    </p>
+                    <p>
+                        Hope you found the right fit <br>for your fabulous wrist.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="footer-section follow">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/IslingtonCollege/"><img src="./images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/islingtoncollege/"><img src="./images/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/islington1996"><img src="./images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-section explore">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="./HTML/collections.html">Collections</a></li>
+                    <li><a href="./HTML/about.html">About Us</a></li>
+                    <li><a href="./HTML/blog.html">Our Blog</a></li>
+                    <li><a href="./HTML/research.html">Research</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section support">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>

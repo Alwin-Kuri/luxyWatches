@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Group Coursework">
+    <meta name="keywords" content="Coursework, HTML, CSS, JavaScript">
+    <meta name="author" content="Alwin Maharjan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - Group Coursework</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .collections-container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .collection-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-item {
+            min-width: 25%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .slider-item img {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .watch-title {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .watch-price {
+            color: #888;
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .buy-now-btn {
+            background-color: #f8c923;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #e1b71c;
+        }
+
+        /* Popup Form Styling */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .popup h3 {
+            margin-bottom: 20px;
+        }
+
+        .popup input,
+        .popup button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .popup button {
+            background-color: #f8c923;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .popup button:hover {
+            background-color: #e1b71c;
+        }
+
+        .payment {
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 10px 50px;
+            display: none;
+            flex-direction: column;
+            -webkit-box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+        }
+        .payTitle {
+            font-size: 20px;
+            color: lightgray;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .payInput {
+            padding: 10px;
+            margin: 10px 0px;
+            border: none;
+            border-bottom: 1px solid gray;
+       }
+
+        .payInput::placeholder {
+            color: rgb(163, 163, 163);
+        }
+
+        .cardIcons {
+            display: flex;
+        }
+
+        .cardIcon {
+            margin-right: 10px;
+        }
+
+        .cardInfo {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sm {
+            width: 30%;
+        }
+
+        .popup .close-btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            font-size: 1.2em;
+            width: auto;
+            padding: 5px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .popup .close-btn:hover{
+            background-color: rgb(225, 47, 47);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../images/logo.png" alt="Luxy Nepal Logo" class="navbar-logo">
+                </a>
+            </div>    
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="./collections.html" class="active">Collections</a>
+                        <ul class="dropdown-menu" style="background-color: #333;">
+                            <li><a href="./men.html">Men's Watches</a></li>
+                            <li><a href="./women.html">Women's Watches</a></li>
+                            <li><a href="./kids.html" class="active">Kids' Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                    <li><a href="./cart.html">Cart<span id="cart-count">0</span></a></li>
+                </ul>
+                <!--A simple search bar-->
+                <div class="navItem">
+                    <div class="search">
+                        <input type="text" placeholder="Search..." class="searchInput">
+                        <img src="../images/search.png" width="20" height="20" alt="" class="searchIcon">
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count"></span></a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!--Return to previous page button-->
+    <button class="back-button" onclick="goBack()">← Return Back</button>
+
+    <!--Showcase image-->
+    <section class="showcase-collections">
+        <img src="../images/kids.jpg" alt="People Wearing Watches" class="showcase-image">
+        <div class="showcase-text">
+            <h2>Get your kid the best watches</h2>
+            <p>Want your kid to be joyful and have track of time?<br> Luxy Nepal offers a range of watches to suit every style.</p>
+        </div>
+    </section>    
+    <!--Product section-->
+    <div class="collections-container">
+        <!-- Luxury Watches Section -->
+        <h2 class="collection-title" style="padding-top: 20px;">Kid's Smart Watches</h2>
+        <div class="slider-container">
+            <div class="slider" style="background-color: white;">
+                <div class="slider-item">
+                    <a href="./smart1.html"><img src="../images/smart.jpg" alt="Smart Watch 2023"></a>
+                    <div class="watch-title">Black Throttle 2023</div>
+                    <div class="watch-price">$900</div>
+                    <button class="buy-now-btn" onclick="openPopup('Smart Watch 2023', '$900')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addToCart('Smart Watch 2023', 250)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <a href="./smart2.html"><img src="../images/smart2.jpg" alt="Smart Watch 2024"></a>
+                    <div class="watch-title">Navy Grape 2000</div>
+                    <div class="watch-price">$1,000</div>
+                    <button class="buy-now-btn" onclick="openPopup('Smart Watch 2024', '$1,000')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addToCart('Smart Watch 2024', 250)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <a href="./smart3.html"><img src="../images/smart3.jpg" alt="Smart Watch 2025"></a>
+                    <div class="watch-title">Pink Apple 2000</div>
+                    <div class="watch-price">$1,200</div>
+                    <button class="buy-now-btn" onclick="openPopup('Smart Watch 2025', '$1,200')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addToCart('Smart Watch 2025', 250)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <a href="./smart4.html"><img src="../images/smart4.jpg" alt="Smart Watch 2020"></a>
+                    <div class="watch-title">Candy Apple 3000</div>
+                    <div class="watch-price">$1300</div>
+                    <button class="buy-now-btn" onclick="openPopup('Smart Watch 2020', '$1300')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addToCart('Smart Watch 2020', 250)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Sport watch section-->
+        <h2 class="collection-title" style="padding-top: 20px;">Sport watches for kids</h2>
+        <div class="slider-container">
+            <div class="slider" style="background-color: white;">
+                <div class="slider-item">
+                    <a href="./sport1.html"><img src="../images/watch (21).jpg" alt="Sport Watch 1"></a>
+                    <div class="watch-title">G-Shock 2000</div>
+                    <div class="watch-price">$750</div>
+                    <button class="buy-now-btn" onclick="openPopup('Sport Watch 1', '$700')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addTooCart('Sport Watch 1', 750)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <a href="./sport2.html"><img src="../images/watch (22).jpg" alt="Sport Watch 2"></a>
+                    <div class="watch-title">G-Shock 2100</div>
+                    <div class="watch-price">$700</div>
+                    <button class="buy-now-btn" onclick="openPopup('Sport Watch 2', '$700')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addTooCart('Sport Watch 2', 700)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <a href="./sport3.html"><img src="../images/watch (23).jpg" alt="Sport Watch 3"></a>
+                    <div class="watch-title">G-Shock 3210</div>
+                    <div class="watch-price">$700</div>
+                    <button class="buy-now-btn" onclick="openPopup('Sport Watch 3', '$700')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addTooCart('Sport Watch 3', 700)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <a href="./sport4.html"><img src="../images/watch (24).jpg" alt="Sport Watch 4"></a>
+                    <div class="watch-title">G-Shock 4210</div>
+                    <div class="watch-price">$700</div>
+                    <button class="buy-now-btn" onclick="openPopup('Sport Watch 4', '$700')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addTooCart('Sport Watch 4', 700)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <img src="../images/watch (25).jpg" alt="Sport Watch 5">
+                    <div class="watch-title">Sport Watch 5</div>
+                    <div class="watch-price">$700</div>
+                    <button class="buy-now-btn" onclick="openPopup('Sport Watch 5', '$700')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addTooCart('Sport Watch 5', 700)">Add to Cart</button>
+                </div>
+                <div class="slider-item">
+                    <img src="../images/watch (26).jpg" alt="Sport Watch 2">
+                    <div class="watch-title">Sport Watch 6</div>
+                    <div class="watch-price">$700</div>
+                    <button class="buy-now-btn" onclick="openPopup('Sport Watch 6', '$700')">Buy Now</button>
+                    <button class="add-to-cart" onclick="addTooCart('Sport Watch 6', 700)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Form -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <form id="purchaseForm" onsubmit="return validatePurchaseForm()">
+                <p id="popup-product-name"></p>
+                <p id="popup-product-price"></p>
+                <h1 class="payTitle">Personal Information</h1>
+                <label>Name and Surname</label>
+                <input id="nameInput" type="text" placeholder="Alwin Maharjan" class="payInput">
+                <label>Phone Number</label>
+                <input id="phoneInput" type="text" placeholder="+977 **********" class="payInput">
+                <label>Address</label>
+                <input id="addressInput" type="text" placeholder="Nakhipot,Lalitpur" class="payInput">
+                <h1 class="payTitle">Card Information</h1>
+                <div class="cardIcons">
+                    <img src="images/visa.png" width="40" alt="Visa" class="cardIcon">
+                    <img src="images/master.png" width="40" alt="Master" class="cardIcon">
+                </div>
+                <input id="cardNumberInput" type="text" class="payInput" placeholder="Card Number">
+                <div class="cardInfo">
+                    <input id="monthInput" type="text" placeholder="mm" class="payInput sm">
+                    <input id="yearInput" type="text" placeholder="yyyy" class="payInput sm">
+                    <input id="cvvInput" type="text" placeholder="cvv" class="payInput sm">
+                </div>
+                <button type="submit">Confirm Purchase</button>
+                <button type="button" class="close-btn" onclick="closePopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="../images/logo.png" alt="Luxy Nepal Logo" class="footer-logo">
+                <div>
+                    <h4>About Us</h4>
+                    <p>
+                        You are accessing the world's <br>number one leading watch store.
+                    </p>
+                    <p>
+                        Hope you found the right fit <br>for your fabulous wrist.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="footer-section follow">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/IslingtonCollege/"><img src="../images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/islingtoncollege/"><img src="../images/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/islington1996"><img src="../images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-section explore">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="./collections.html">Collections</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./blog.html">Our Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section support">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Open Popup
+        function openPopup(productName, productPrice) {
+            document.getElementById("popup-product-name").innerText = `Product: ${productName}`;
+            document.getElementById("popup-product-price").innerText = `Price: ${productPrice}`;
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        // Close Popup
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

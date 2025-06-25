@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page | Luxy Nepal</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to CSS -->
+</head>
+<style>
+    /* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* Product Section */
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.product-image img {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-details {
+    max-width: 500px;
+    margin-left: 50px;
+}
+
+.price {
+    font-size: 24px;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+
+}
+
+.buy-now-btn, .add-cart {
+    background: black;
+    color: white;   
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 10px;
+    justify-content: center;
+}
+
+.buy-now-btn:hover, .add-cart:hover{
+    background-color: #e9d14e;
+    color: #000000;
+    text-decoration: solid;
+}
+
+/* Popup Form Styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+}
+
+.popup h3 {
+    margin-bottom: 20px;
+}
+
+.popup input,
+.popup button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.popup button {
+    background-color: #f8c923;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+    background-color: #e1b71c;
+}
+
+.payment {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 10px 50px;
+    display: none;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+}
+
+.payTitle {
+    font-size: 20px;
+    color: lightgray;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.payInput {
+    padding: 10px;
+    margin: 10px 0px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.payInput::placeholder {
+    color: rgb(163, 163, 163);
+}
+
+.cardIcons {
+    display: flex;
+}
+
+.cardIcon {
+    margin-right: 10px;
+}
+
+.cardInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sm {
+    width: 30%;
+}
+
+.popup .close-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    width: auto;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup .close-btn:hover{
+    background-color: rgb(225, 47, 47);
+}
+
+.product-specs {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-specs h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.product-specs table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-specs td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-specs td:first-child {
+    font-weight: bold;
+    color: #333;
+    width: 40%;
+}
+
+
+.reviews-container {
+    width: 90%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reviews-container h2{
+    justify-content: right;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.review {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.review-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 15px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.review-content .stars {
+    color: #FFD700;
+}
+
+
+/* Cart Counter */
+.nav-links span {
+    color: red;
+    font-weight: bold;
+}
+
+</style>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Luxy Nepal Logo" class="navbar-logo">
+                </a>
+            </div>    
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="../HTML/collections.html" class="active">Collections</a>
+                        <ul class="dropdown-menu" style="background-color: #333;">
+                            <li><a href="../HTML/men.html">Men's Watches</a></li>
+                            <li><a href="../HTML/women.html">Women's Watches</a></li>
+                            <li><a href="../HTML/kids.html">Kids' Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../HTML/about.html">About Us</a></li>
+                    <li><a href="../HTML/blog.html">Blog</a></li>
+                    <li><a href="../HTML/research.html">Research</a></li>
+                    <li><a href="../HTML/cart.html">Cart(<span id="cart-count">0</span>)</a></li>
+                </ul>
+                <!--A simple search bar-->
+                <div class="navItem">
+                    <div class="search">
+                        <input type="text" placeholder="Search..." class="searchInput">
+                        <img src="../images/search.png" width="20" height="20" alt="" class="searchIcon">
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count"></span></a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!--Return to previous page button-->
+    <button class="back-button" onclick="goBack()">← Return Back</button>
+
+    <!-- Product Section -->
+    <div class="product-container">
+        <div class="product-image">
+            <img src="../images/watch (42).jpg" alt="Gurkha Premium">
+        </div>
+        <div class="product-details">
+            <h2>Gurkha Premium</h2>
+            <p class="price">$4,500</p>
+            <p class="description">
+                The Gurkha Premium is crafted by Swiss manufacturers with 18K gold plating,  
+                a sapphire crystal dial, and water resistance up to 50 meters.  
+                A perfect blend of technology and timeless elegance.
+            </p>
+
+            <!-- Quantity Selector -->
+            <div class="quantity">
+                <button onclick="decreaseQuantity()">-</button>
+                <input type="text" id="quantity" value="1" readonly>
+                <button onclick="increaseQuantity()">+</button>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button class="buy-now-btn" onclick="openPopup('Gurkha Premium', '$5,000')">Buy Now</button>
+                <button class="add-cart" onclick="addToCart()">Add to Cart</button>
+            </div>     
+        </div>
+    </div>
+    <div class="product-specs">
+        <h2 style="text-align: center;">Product Specifications</h2>
+        <table>
+            <tr>
+                <td>Glass Material</td>
+                <td>Mineral Glass</td>
+            </tr>
+            <tr>
+                <td>Warranty Period</td>
+                <td>24 Months</td>
+            </tr>
+            <tr>
+                <td>Strap Material</td>
+                <td>Leather</td>
+            </tr>
+            <tr>
+                <td>Strap Color</td>
+                <td>Black</td>
+            </tr>
+            <tr>
+                <td>Lock Mechanism</td>
+                <td>Buckle</td>
+            </tr>
+            <tr>
+                <td>Movement</td>
+                <td>Quartz</td>
+            </tr>
+            <tr>
+                <td>Water Resistance</td>
+                <td>50 Meters</td>
+            </tr>
+            <tr>
+                <td>Case Shape</td>
+                <td>Round</td>
+            </tr>
+            <tr>
+                <td>Case Material</td>
+                <td>Metal</td>
+            </tr>
+            <tr>
+                <td>Case Dimensions</td>
+                <td>48 mm x 41 mm x 9.55 mm</td>
+            </tr>
+            <tr>
+                <td>Country of Origin</td>
+                <td>Switzerland</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="reviews-container">
+        <h2 style="display: flex;">Ratings & Reviews of Luxury Gold Watch</h2>
+
+        <!-- Individual Reviews -->
+        <div class="review">
+            <div class="review-content">
+                <p><strong>Ronaldo</strong></p>
+                <p class="stars">★★★★★</p>
+                <p>"Absolutely stunning watch! The craftsmanship is incredible."</p>
+                <p class="review-date">30 Jul 2024</p>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-content">
+                <p><strong>John</strong></p>
+                <p class="stars">★★★★★</p>
+                <p>"Absolutely stunning watch! The craftsmanship is incredible."</p>
+                <p class="review-date">30 Jul 2023</p>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-content">
+                <p><strong>Doe</strong></p>
+                <p class="stars">★★★★★</p>
+                <p>"This is the best watch I've ever owned. Worth every penny!"</p>
+                <p class="review-date">12 April 2024</p>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-content">
+                <p><strong>Cena</strong></p>
+                <p class="stars">★★★★★</p>
+                <p>"Looks even better in person. Highly recommend!"</p>
+                <p class="review-date">14 June 2024</p>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-content">
+                <p><strong>Lao</strong></p>
+                <p class="stars">★★★★★</p>
+                <p>"The quality is amazing, and it's very comfortable to wear."</p>
+                <p class="review-date">13 May 2024</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Form -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <form id="purchaseForm" onsubmit="return validatePurchaseForm()">
+                <p id="popup-product-name"></p>
+                <p id="popup-product-price"></p>
+                <h1 class="payTitle">Personal Information</h1>
+                <label>Name and Surname</label>
+                <input id="nameInput" type="text" placeholder="Alwin Maharjan" class="payInput">
+                <label>Phone Number</label>
+                <input id="phoneInput" type="text" placeholder="+977 **********" class="payInput">
+                <label>Address</label>
+                <input id="addressInput" type="text" placeholder="Nakhipot,Lalitpur" class="payInput">
+                <h1 class="payTitle">Card Information</h1>
+                <div class="cardIcons">
+                    <img src="../images/visa.png" width="40" alt="Visa" class="cardIcon">
+                    <img src="../images/master.png" width="40" alt="Master" class="cardIcon">
+                </div>
+                <input id="cardNumberInput" type="text" class="payInput" placeholder="Card Number">
+                <div class="cardInfo">
+                    <input id="monthInput" type="text" placeholder="mm" class="payInput sm">
+                    <input id="yearInput" type="text" placeholder="yyyy" class="payInput sm">
+                    <input id="cvvInput" type="text" placeholder="cvv" class="payInput sm">
+                </div>
+                <button type="submit">Confirm Purchase</button>
+                <button type="button" class="close-btn" onclick="closePopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="../images/logo.png" alt="Luxy Nepal Logo" class="footer-logo">
+                <div>
+                    <h4>About Us</h4>
+                    <p>
+                        You are accessing the world's <br>number one leading watch store.
+                    </p>
+                    <p>
+                        Hope you found the right fit <br>for your fabulous wrist.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="footer-section follow">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/IslingtonCollege/"><img src="../images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/islingtoncollege/"><img src="../images/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/islington1996"><img src="../images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-section explore">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Our Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section support">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Quantity Functions
+        function increaseQuantity() {
+            let quantityInput = document.getElementById("quantity");
+            let quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+        }
+
+        function decreaseQuantity() {
+            let quantityInput = document.getElementById("quantity");
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+            quantityInput.value = quantity - 1;
+            }
+        }
+
+        // Add to Cart Function
+        function addToCart() {
+        let quantity = document.getElementById("quantity").value;
+        alert("Added " + quantity + " items to cart!");
+        }
+
+        // Add to cart function
+        let cartCount = 0; // Track cart items
+
+        // Increase quantity function
+        const decreaseButton = document.querySelector('.decrease-quantity');
+        const increaseButton = document.querySelector('.increase-quantity');
+        const quantityInput = document.querySelector('.quantity-input');
+
+        decreaseButton.addEventListener('click', () => {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+        });
+
+        increaseButton.addEventListener('click', () => {
+        let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        });
+        const thumbnails = document.querySelectorAll('.thumbnail-images img');
+        const mainImage = document.querySelector('.main-image');
+
+        thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            mainImage.src = thumbnail.src;
+            });
+        });
+
+        function addToCart() {
+        let quantity = parseInt(document.getElementById("quantity").value);
+            cartCount += quantity;
+            document.getElementById("cart-count").innerText = cartCount; // Update cart count
+            alert(quantity + " item(s) added to cart!");
+        }
+        // Open Popup
+        function openPopup(productName, productPrice) {
+            document.getElementById("popup-product-name").innerText = `Product: ${productName}`;
+            document.getElementById("popup-product-price").innerText = `Price: ${productPrice}`;
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        // Close Popup
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        //Go back or Return back button function
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="../js/script.js"></script>    
+</body>
+</html>

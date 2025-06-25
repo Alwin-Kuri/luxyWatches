@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Group Coursework">
+    <meta name="keywords" content="Coursework, HTML, CSS, JavaScript">
+    <meta name="author" content="Hishek Yonjan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Luxy Nepal</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!--Link to external css file-->
+    <!--Internal CSS Styling for about us page-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .about-content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .about-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #000;
+        }
+        .about-content p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        .team-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .team-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .team-member {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .team-member:hover{
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .team-member h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .team-member p {
+            font-size: 1em;
+            color: #777;
+        }
+        .read-more-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .read-more-btn:hover {
+            background-color: #e1b71c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="/index.html">
+                    <img src="../images/logo.png" alt="Luxy Nepal Logo" class="navbar-logo">
+                </a>
+            </div>    
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="./collections.html">Collections</a>
+                        <ul class="dropdown-menu" style="background-color: #333;">
+                            <li><a href="./men.html">Men's Watches</a></li>
+                            <li><a href="./women.html">Women's Watches</a></li>
+                            <li><a href="./kids.html">Kids' Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./about.html" class="active">About Us</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                    <li><a href="./cart.html">Cart<span id="cart-count">0</span></a></li>
+                </ul>
+                <!--A simple search bar-->
+                <div class="navItem">
+                    <div class="search">
+                        <input type="text" placeholder="Search..." class="searchInput">
+                        <img src="../images/search.png" width="20" height="20" alt="" class="searchIcon">
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count"></span></a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!--Return to previous page button-->
+    <button class="back-button" onclick="goBack()">← Return Back</button>
+    
+    <!--A simple paragraph designated to the watch store-->
+    <section class="about-content">
+        <h2>Who We Are</h2>
+        <p>
+            Luxy Nepal is a premier watch store dedicated to offering a curated selection of branded watches
+            for watch enthusiasts and collectors. From timeless classics to modern designs, we bring you the best
+            in luxury timepieces. With a commitment to quality and authenticity, Luxy Nepal ensures every customer
+            receives a product that embodies sophistication and style. Explore our collection to find a watch that
+            defines your individuality and elegance.
+        </p>
+    </section>
+    
+    <!--Team section-->
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="../images/alwin.png" alt="Alwin Maharjan">
+                <h3>Alwin Maharjan</h3>
+                <p>Group Team Leader</p>
+                <p>A young AI enthusiast currently studying in Islington College. 
+                    Developer of home page & collections page. Currently freelancing....</p>
+                <a href="./alwin.html">
+                    <button class="read-more-btn">
+                    Read More
+                    </button>
+                </a>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="../images/raj.png" alt="Raj Pandit">
+                <h3>Raj Pandit</h3>
+                <p>Dev of blog and wireframes</p>
+                <p>A passionate individual with experience in Python
+                    programming, deep learning, and AI. Developer of blog page and wireframes....</p>
+                <a href="./raj.html">
+                    <button class="read-more-btn">
+                    Read More
+                    </button>
+                </a>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img style="object-fit: cover;" src="../images/deshan.png" alt="Deshan Shakya">
+                <h3>Deshan Shakya</h3>
+                <p>Research Designer</p>
+                <p>Dedicated and passionate student with a strong work ethic and a love for challenges. 
+                    Developer of research page....</p>
+                <a href="./deshan.html">
+                    <button class="read-more-btn">
+                    Read More
+                    </button>
+                </a>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <img style="object-fit: cover;" src="../images/hishek.jpg" alt="Hishek Yonjan">
+                <h3>Hishek Yonjan</h3>
+                <p>About us Designer</p>
+                <p>Motivated and adaptive student with excellent academic background and a love for learning.
+                    Developer of about us pages....
+                </p>
+                <a href="./hishek.html">
+                    <button class="read-more-btn">
+                    Read More
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="../images/logo.png" alt="Luxy Nepal Logo" class="footer-logo">
+                <div>
+                    <h4>About Us</h4>
+                    <p>
+                        You are accessing the world's <br>number one leading watch store.
+                    </p>
+                    <p>
+                        Hope you found the right fit <br>for your fabulous wrist.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="footer-section follow">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/IslingtonCollege/"><img src="../images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/islingtoncollege/"><img src="../images/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/islington1996"><img src="../images/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+    
+            <div class="footer-section explore">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="./collections.html">Collections</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./blog.html">Our Blog</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section support">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
