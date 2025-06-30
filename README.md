@@ -9,8 +9,7 @@ A stylish product catalog website or interface (depending on implementation) for
 - Clean and modern user interface
 
 ## Technologies Used
-- [Specify: HTML/CSS/JavaScript or Java GUI/etc.]
-- [Framework used if any, e.g., React/Tailwind/Bootstrap]
+- HTML/CSS/JavaScript
 
 ## Usage
 1. Open the `index.html` (or launch GUI app).
