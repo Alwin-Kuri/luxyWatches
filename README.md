@@ -1,6 +1,6 @@
 # Luxy Watches – Product Catalog Showcase
 
-A stylish product catalog website or interface (depending on implementation) for showcasing luxury watches in a clean, modern layout.
+A stylish product catalog website for showcasing luxury watches in a clean, modern layout.
 
 ## Features
 - Display luxury watch models with descriptions
